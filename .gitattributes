@@ -1,2 +1,20 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+n = int(input())
+points = []
+for i in range(n):
+    a,b = map(int, input().split())
+    points.append([a,b])
+    points = sorted(points,key = lambda x: x[1])
+dots = []
+dots.append(points[0][1])
+i=0
+j=0
+while i < len(points)-1:
+    if points[j][1] >= points[i+1][0]:
+        i+=1
+    else:
+        dots.append(points[i+1][1])
+        j = i+1
+        i = i+1
+        
+print(len(dots))
+print(*dots)
